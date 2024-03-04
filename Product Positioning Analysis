@@ -1,0 +1,129 @@
+--Summary Statistics for Sales Volume
+
+SELECT MIN(sales_volume) AS min_sales_volume,
+       MAX(sales_volume) AS max_sales_volume,
+	   ROUND(AVG(sales_volume), 2) AS avg_sales_volume,
+	   COUNT(*) AS total_records,
+	   STDDEV(sales_volume) AS stddev_sales_volume
+FROM sales_data;
+
+--Summary Statistics for Pricing 
+
+SELECT MIN(price) AS min_price, 
+       MAX(price) AS max_price,
+	   ROUND(AVG(price), 2) AS avg_price,
+	   COUNT(*) AS total_price_records,
+	   STDDEV(price) AS stddev_price
+FROM sales_data;
+
+--Distribution of Sales Volume by Product Category 
+
+SELECT 
+     product_category,
+     COUNT(*) AS num_sales,
+	 SUM(sales_volume) AS total_sales_volume
+FROM sales_data
+GROUP BY product_category;
+
+--Distribution of Pricing 
+
+SELECT 
+    WIDTH_BUCKET(Price, min_price, max_price, 10) AS price_bucket,
+    COUNT(*) AS num_products
+FROM (
+    SELECT 
+        Price,
+        MIN(Price) OVER () AS min_price,
+        MAX(Price) OVER () AS max_price
+    FROM sales_data
+) AS price_data
+GROUP BY price_bucket
+ORDER BY price_bucket;
+
+--Calculate the correlation coefficient between Price and Sales Volume
+
+SELECT corr(price,sales_volume) AS price_correlation_coefficient 
+FROM sales_data;
+
+--Calculate the correlation coefficient between Competitor's Price and Sales Volume
+SELECT corr(competitors_price,sales_volume) AS corr_competitors_price
+FROM sales_data;
+
+--Frequency Distribution of Foot Traffic across Sales Volume
+
+SELECT foot_traffic,
+       COUNT(*) AS foot_traffic_frequency,
+	   MIN(sales_volume) AS min_sales_volume,
+       MAX(sales_volume) AS max_sales_volume,
+	   ROUND(AVG(sales_volume), 2) AS avg_sales_volume
+FROM sales_data
+GROUP BY foot_traffic
+ORDER BY foot_traffic_frequency DESC;
+
+--Calculate Sales Volume by Product Category and Food Traffic
+
+SELECT product_category,
+       foot_traffic,
+	   SUM(sales_volume) AS total_sales_volume
+FROM sales_data 
+GROUP BY product_category, foot_traffic
+ORDER BY total_sales_volume DESC;
+	   
+
+--Frequency of Product Promotion across Sales Volume
+
+SELECT product_category,
+       promotion, 
+       COUNT(*) AS promotion_frequency,
+	   SUM (sales_volume) AS total_sales_volume
+FROM sales_data
+GROUP BY product_category, promotion 
+ORDER BY promotion_frequency, total_sales_volume DESC;
+
+--Calculate the Average Sales Volume for each Consumer Demographics Category
+
+SELECT consumer_demographics,
+       ROUND(AVG(sales_volume),2) AS avg_sales_volume
+FROM sales_data
+GROUP BY consumer_demographics
+ORDER BY avg_sales_volume DESC; 
+
+--Calculate Frequency Distribution of Sales Volume across different Product Positions
+
+SELECT product_position,
+       COUNT(*) AS frequency,
+	   MIN(sales_volume) AS min_sales_volume,
+	   MAX(sales_volume) AS max_sales_volume,
+	   ROUND(AVG(sales_volume), 2) AS avg_sales_volume
+FROM sales_data
+GROUP BY product_position
+ORDER BY frequency DESC;
+
+--Total Sales Volume by Product Category and Seasonal Status
+
+SELECT product_category,
+       seasonal,
+       SUM(sales_volume) AS total_sales_volume
+FROM sales_data
+GROUP BY  product_category, seasonal 
+ORDER BY total_sales_volume DESC;
+
+--Calculate Seasonal Status and Consumer Demographics across average Sales Volume
+
+SELECT seasonal,
+       consumer_demographics,
+       COUNT(consumer_demographics) AS total_consumers,
+	   ROUND(AVG(sales_volume), 2) AS avg_sales_volume
+FROM sales_data
+WHERE consumer_demographics IN
+('Families', 'College students', 'Young adults', 'Seniors')
+GROUP BY seasonal, consumer_demographics 
+ORDER BY total_consumers DESC;
+
+
+	
+
+
+
+
+
