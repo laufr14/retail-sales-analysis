@@ -60,7 +60,7 @@ FROM sales_data
 GROUP BY foot_traffic
 ORDER BY foot_traffic_frequency DESC;
 
---Calculate Sales Volume by Product Category and Food Traffic
+--Calculate Sales Volume by Product Category and Foot Traffic
 
 SELECT product_category,
        foot_traffic,
