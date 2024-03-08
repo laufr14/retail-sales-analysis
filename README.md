@@ -33,13 +33,13 @@ Families and young adults are the primary customer segments, guiding targeted ma
 2. **[Covid Dashboard] [(https://public.tableau.com/app/profile/laura.f.lix/viz/CovidDashboard_17028400975650/Dashboard1)]:
 
    Project Overview:
-The Tableau project examines COVID-19 data, focusing on total deaths per continent, global sales trends, and the percentage of the population infected.
+   The Tableau project examines COVID-19 data, focusing on total deaths per continent, global sales trends, and the percentage of the population infected.
 
-Key Insights:
+   Key Insights:
 
-Variations in COVID-19 mortality rates across continents.
-Fluctuations in global sales, highlighting industries most affected by the pandemic.
-Prevalence of COVID-19 infections relative to population size, revealing the scale of the pandemic's spread..
+   Variations in COVID-19 mortality rates across continents.
+   Fluctuations in global sales, highlighting industries most affected by the pandemic.
+   Prevalence of COVID-19 infections relative to population size, revealing the scale of the pandemic's spread..
    - [https://public.tableau.com/app/profile/laura.f.lix/viz/CovidDashboard_17028400975650/Dashboard1]
    
 
