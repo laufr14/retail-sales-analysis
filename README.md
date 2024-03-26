@@ -14,8 +14,11 @@ The Tableau project examines sales data to discover important patterns and insig
 
 Key Insights:
 •	Electronic devices and household goods are leading categories that generate substantial revenue. 
+
 •	Cheaper items demonstrate increased sales figures, suggesting a sensitivity to pricing. 
+
 •	Sales trends show heightened demand during holiday seasons. 
+
 •	Families and young individuals make up the main customer groups, influencing focused marketing strategies.
 
 [https://public.tableau.com/app/profile/laura.f.lix/viz/SalesPerformanceAnalysisStory/SalesPerformanceAnalysis?publish=yes]
@@ -26,7 +29,9 @@ The Tableau project analyzes COVID-19 data by looking at the total number of dea
 
 Key Insights:
 •	Differences in COVID-19 death rates worldwide. 
+
 •	Changes in international revenue, emphasizing sectors hit hardest by the outbreak.
+
 •	 Occurrence of COVID-19 cases compared to population density, illustrating the extent of the virus's transmission. 
         [https://public.tableau.com/app/profile/laura.f.lix/viz/CovidDashboard_17028400975650/Dashboard1]
 
